@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { products } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
 import { Product, CartItem } from '../types';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const ProductCard: React.FC<{ product: Product; onAddToCart: (product: Product) => void }> = ({ product, onAddToCart }) => (
     <div className="bg-slate-900 rounded-lg overflow-hidden flex flex-col">
@@ -24,11 +25,12 @@ const ProductCard: React.FC<{ product: Product; onAddToCart: (product: Product) 
 
 const CartView: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } = useCart();
+    const navigate = useNavigate(); // Initialize useNavigate
     
     const handleCheckout = () => {
-        alert(`Checkout total: $${getCartTotal().toFixed(2)}\n(This is a demo. No payment will be processed.)`);
-        clearCart();
-        onClose();
+        // Instead of the alert, navigate to the checkout page
+        navigate('/checkout');
+        onClose(); // Close the cart view
     };
 
     return (

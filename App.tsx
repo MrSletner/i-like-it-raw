@@ -9,6 +9,7 @@ import VideosPage from './pages/VideosPage';
 import ArtPage from './pages/ArtPage';
 import StorePage from './pages/StorePage';
 import Header from './components/Header';
+import CheckoutPage from './pages/CheckoutPage'; // Import the new CheckoutPage
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/videos" element={<VideosPage />} />
                 <Route path="/art" element={<ArtPage />} />
                 <Route path="/store" element={<StorePage />} />
+                <Route path="/checkout" element={<CheckoutPage />} /> {/* Add the new route for CheckoutPage */}
             </Routes>
           </main>
           <BottomNav />
